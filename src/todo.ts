@@ -61,6 +61,8 @@ function loadTasks() {
     if (!elements.taskContainer) return;
 
     elements.taskContainer.innerHTML = "";
+    
+    tasks = tasks.sort(((a, b) => (b.completed ? 0 : 1) - (a.completed ? 0 : 1)));
 
     for (let task of tasks) {
         addTaskToContainer(task.guid);
