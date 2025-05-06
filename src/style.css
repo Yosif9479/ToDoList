@@ -11,3 +11,7 @@
 .incomplete {
     @apply outline-2 outline-[#4EA8DE] size-5 rounded-full shrink-0 py-1
 }
+
+.text-completed {
+    @apply line-through text-[#808080]
+}

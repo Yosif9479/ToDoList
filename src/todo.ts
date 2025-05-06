@@ -94,7 +94,7 @@ function addTaskToContainer(guid: string) {
 
     const li = document.createElement("li");
     li.classList = "task select-none";
-    li.innerHTML = `<div class="${tasks[index].completed ? 'completed' : 'incomplete'}" data-check><img class="${tasks[index].completed ? "" : "hidden"}" src="https://img.icons8.com/?size=48&id=7690&format=png&color=ffffff" alt=""></div>\n<p>${tasks[index].name}</p>`;
+    li.innerHTML = `<div class="${tasks[index].completed ? 'completed' : 'incomplete'}" data-check><img class="${tasks[index].completed ? "" : "hidden"}" src="https://img.icons8.com/?size=48&id=7690&format=png&color=ffffff" alt=""></div>\n<p class="${tasks[index].completed ? 'text-completed' : ''}">${tasks[index].name}</p>`;
     li.addEventListener("click", () => toggleTask(guid))
 
 
@@ -125,11 +125,13 @@ function toggleTask(guid: string) {
     if (!container) return;
 
     const taskElement = container.children[index];
+    const taskName = taskElement.children[1] as HTMLLabelElement;
     const checkbox = taskElement.querySelector("[data-check]") as HTMLElement;
     const checkImg = checkbox.children[0] as HTMLImageElement;
 
     checkbox.classList = tasks[index].completed ? "completed" : "incomplete";
     checkImg.classList.toggle("hidden", !tasks[index].completed);
+    taskName.classList.toggle("text-completed", tasks[index].completed);
 
     saveTasks();
     
