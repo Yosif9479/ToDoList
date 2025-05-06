@@ -1,1 +1,13 @@
 @import 'tailwindcss';
+
+.task {
+    @apply bg-[#262626] outline-1 outline-[#333333] flex gap-4 rounded-xl px-3 py-3
+}
+
+.completed {
+    @apply bg-[#5E60CE] size-5 rounded-full shrink-0 p-1
+}
+
+.incomplete {
+    @apply outline-2 outline-[#4EA8DE] size-5 rounded-full shrink-0 py-1
+}
